@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -47,4 +48,17 @@ dependencies {
 
     implementation 'com.unity3d.ads:unity-ads:4.7.1'
 
+
+}
+afterEvaluate{
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                groupId = 'com.github.aitnacer-nabil'
+                artifactId = 'invalidclicklimitprotector'
+                version ='1.0'
+            }
+        }
+    }
 }
